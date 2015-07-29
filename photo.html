@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gallery</title>
+    <!-- <meta name="viewport" content="width=device-width,initial-scale=1.0"> -->
+</head>
+<body>
+    <ul id="data">
+        <li title="1">1</li>
+        <li title="2">2</li>
+        <li title="3">3</li>
+        <li title="4">4</li>
+        <li title="5">5</li>
+        <li title="6">6</li>
+        <li title="7">7</li>
+        <li title="8">8</li>
+        <li title="9">9</li>
+        <li title="10">10</li>
+        <li title="11">11</li>
+        <li title="12">12</li>
+    </ul>
+    <div id="descript">
+        <h2></h2>
+        <p></p>
+    </div>
+</body>
+<script type="text/javascript">
+    function simpleData(){
+    if(!document.getElementById) return false;
+    if(!document.getElementsByTagName) return false;
+    var descript=document.getElementById("descript");
+    var data=document.getElementById("data");
+    var content=data.getElementsByTagName("li");
+    var text=new Array();
+    var key=0;
+    var textContent=0;
+    for(var i=0;i<content.length;i++){
+        key=content[i].title;
+        textContent=content[i].firstChild.nodeValue;
+        // console.log(textContent);
+        text[key]=textContent;
+        // console.log(text[key]);
+    }
+    var descriptH2=descript.getElementsByTagName("h2")[0];
+    var descriptP=descript.getElementsByTagName("p")[0];
+    var helper = function(i){
+            return function(){
+                descriptH2.innerHTML = i+1;
+            }
+        }
+    for(var j=0;j<content.length;j++){
+        
+        // current_content=current_content.innerHTML;
+        console.log(content[j]);
+        content[j].onclick = helper(j);
+        
+    }
+}
+window.onload=simpleData;
+</script>
+</html>
