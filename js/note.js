@@ -2,6 +2,9 @@
  * Created by xiaojun on 15/7/23.
  */
 $(function() {
+    if( !localStorage.data ){
+        localStorage.data = '{"note":[]}';
+    }
     var data = JSON.parse(localStorage['data']);
     initeNum();
 
