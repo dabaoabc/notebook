@@ -3,7 +3,7 @@
  */
 $(function() {
     if( !localStorage.data ){
-        localStorage.data = {"note":[]}
+        localStorage.data = '{"note":[]}';
     }
     var data = JSON.parse(localStorage['data']);
     initeNum();
